@@ -89,9 +89,74 @@ It's recommended to wrap SDK calls in `try...except` blocks as shown in the exam
 
 ## Implemented API Calls
 
+### Blockchain RPCs
 - `get_block_count()`
 - `get_block_hash(height)`
 - `get_block(block_hash, verbosity=1)`
+- `get_best_block_hash()`
+- `get_blockchain_info()`
+- `get_block_filter(block_hash, filter_type="basic")`
+- `get_block_header(block_hash, verbose=True)`
+- `get_block_stats(hash_or_height, stats=None)`
+- `get_chain_tips()`
+- `get_chain_tx_stats(nblocks=None, block_hash=None)`
+- `get_difficulty()`
+- `get_mempool_ancestors(txid, verbose=False)`
+- `get_mempool_descendants(txid, verbose=False)`
+- `get_mempool_entry(txid)`
+- `get_mempool_info()`
+- `get_raw_mempool(verbose=False, mempool_sequence=False)`
+- `get_tx_out(txid, vout, include_mempool=True)`
+- `get_tx_out_proof(txids, block_hash=None)`
+- `get_tx_out_set_info(hash_type='hash_serialized_2', hash_or_height=None, use_index=None)`
+- `precious_block(block_hash)`
+- `prune_blockchain(height)`
+- `save_mempool()`
+- `scan_tx_out_set(action, scan_objects)`
+- `verify_chain(checklevel=3, nblocks=6)`
+- `verify_tx_out_proof(proof)`
+
+### Control RPCs
+- `get_memory_info(mode='stats')`
+- `get_rpc_info()`
+- `help(command=None)`
+- `logging(include=None, exclude=None, add=None, remove=None, clear=None, stat=None)`
+- `stop()`
+- `uptime()`
+
+### Generating RPCs
+- `generate_block(output, transactions)`
+- `generate_to_address(nblocks, address, maxtries=1000000)`
+- `generate_to_descriptor(num_blocks, descriptor, maxtries=1000000)`
+
+### Mining RPCs
+- `get_block_template(rules=None)`
+- `get_mining_info()`
+- `get_network_hash_ps(nblocks=-1, height=-1)`
+- `prioritise_transaction(txid, fee_delta, dummy=None)`
+- `submit_block(hexdata, dummy=None)`
+- `submit_header(hexdata)`
+
+### Network RPCs
+- `add_node(node, command)`
+- `clear_banned()`
+- `disconnect_node(address=None, nodeid=None)`
+- `get_added_node_info(node=None)`
+- `get_connection_count()`
+- `get_net_totals()`
+- `get_network_info()`
+- `get_node_addresses(count=1)`
+- `get_peer_info()`
+- `list_banned()`
+- `ping()`
+- `set_ban(subnet, command, bantime=86400, absolute=False)`
+- `set_network_active(state)`
+
+### Transaction RPCs
 - `get_raw_transaction(txid, verbose=False)`
 - `decode_raw_transaction(hex_string)`
 - `send_raw_transaction(hex_string)`
+- `analyze_psbt(psbt)`
+- `combine_psbt(txs)`
+- `combine_raw_transaction(txs)`
+- `convert_to_psbt(hexrawtx, permitsigdata=False, iswitness=None)`
